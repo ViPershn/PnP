@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'org.example.Server' // Specify the fully qualified main class name
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation 'commons-cli:commons-cli:1.5.0'
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.example.Server' // Specify the fully qualified main class name in the manifest
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+run {
+    if (project.hasProperty('args')) {
+        args project.args.split()
+    }
+}

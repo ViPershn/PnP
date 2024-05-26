@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="your-artifact-id:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/your_artifact_id_jar</output-path>
+    <root id="archive" name="your-artifact-id.jar">
+      <element id="module-output" name="your-artifact-id" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.5.0/commons-cli-1.5.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
